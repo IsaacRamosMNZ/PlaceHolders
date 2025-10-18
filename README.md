@@ -96,9 +96,9 @@ Estrutura inicial criada (DAO, DTO, VIEW).
 
 Projeto idealizado e desenvolvido por:
 
-Integrante 1
+Integrante: Isaac Ramos
+Integrante: Jorge Cardoso de Jesus
 
-Integrante 2
 
 🗄️ Informações sobre o Banco de Dados
 
