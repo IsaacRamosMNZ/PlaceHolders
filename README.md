@@ -20,18 +20,6 @@ Gestão de reservas em diferentes andares, prédios ou filiais.
 👥 Controle de usuários e permissões
 Perfis distintos para administradores, colaboradores e clientes.
 
-🔔 Notificações automáticas
-Confirmações e lembretes de reservas por meio do sistema.
-
-📅 Calendário visual
-Visualização intuitiva da disponibilidade dos ambientes.
-
-📊 Relatórios e estatísticas
-Geração de relatórios sobre utilização, horários mais procurados e frequência.
-
-⭐ Sistema de feedback
-Avaliação pós-uso dos ambientes, auxiliando na melhoria contínua.
-
 🧾 Histórico completo de reservas
 Registro detalhado para auditoria e consultas futuras.
 
