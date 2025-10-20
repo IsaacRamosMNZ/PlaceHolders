@@ -27,3 +27,7 @@ CREATE TABLE reserva (
   FOREIGN KEY (idUsuario) REFERENCES usuario(id),
   FOREIGN KEY (idAmbiente) REFERENCES ambiente(id)
 );
+ 
+select * from ambiente;
+select * from usuario;
+select * from reserva;
