@@ -11,13 +11,15 @@ public class Ambiente {
     private int capacidade;
     private String recursos;
     private String localizacao;
+    private String status;
 
-    public Ambiente(int id, String nome, int capacidade, String recursos, String localizacao) {
+    public Ambiente(int id, String nome, int capacidade, String recursos, String localizacao, String status) {
         this.id = id;
         this.nome = nome;
         this.capacidade = capacidade;
         this.recursos = recursos;
         this.localizacao = localizacao;
+        this.status = status;
     }
 
     public Ambiente() {
@@ -63,4 +65,11 @@ public class Ambiente {
         this.localizacao = localizacao;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

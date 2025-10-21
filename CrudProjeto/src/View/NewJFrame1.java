@@ -6,25 +6,37 @@ package View;
 
 import DAO.Conexao;
 import DAO.UsuarioDAO;
+import DTO.Usuario_logado;
 import DTO.usuario;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author deck
  */
 public class NewJFrame1 extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame1.class.getName());
-    
+
     private char echoOriginal;
-    
+
     /**
      * Creates new form NewJFrame1
      */
     public NewJFrame1() {
         initComponents();
-        
+
         echoOriginal = Senha.getEchoChar();
+
+        ID.setText(String.valueOf(Usuario_logado.getUsuarioAtual().getId()));
+        ID.setEditable(false);
+
+        gmail.setText(Usuario_logado.getUsuarioAtual().getGmail());
+        gmail.setEditable(false);
+
+        nome.setText(Usuario_logado.getUsuarioAtual().getNome());
+
+        Senha.setText(Usuario_logado.getUsuarioAtual().getSenha());
     }
 
     /**
@@ -82,6 +94,18 @@ public class NewJFrame1 extends javax.swing.JFrame {
             }
         });
 
+        gmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gmailActionPerformed(evt);
+            }
+        });
+
+        nome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomeActionPerformed(evt);
+            }
+        });
+
         jButton1.setText("Atualizar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +114,11 @@ public class NewJFrame1 extends javax.swing.JFrame {
         });
 
         jButton2.setText("Deletar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("limpar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -282,10 +311,10 @@ public class NewJFrame1 extends javax.swing.JFrame {
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
         // TODO add your handling code here:
-        if(jCheckBox1.isSelected()){
+        if (jCheckBox1.isSelected()) {
             Senha.setEchoChar((char) 0);
             jCheckBox1.setText("ocultar");
-        }else{
+        } else {
             Senha.setEchoChar(echoOriginal);
             jCheckBox1.setText("mostrar");
         }
@@ -295,28 +324,30 @@ public class NewJFrame1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         usuario objlogindto = new usuario();
 
-        String Nome, usuario, Gmail, senha;
+        String Nome, email, senha;
 
-        Nome = gmail.getText();
-        usuario = nome.getText();
+        Nome = nome.getText();
+        email = gmail.getText();
         senha = Senha.getText();
 
         objlogindto.setNome(Nome);
-        objlogindto.setGmail(usuario);
+        objlogindto.setGmail(email);
         objlogindto.setSenha(senha);
 
         UsuarioDAO objlogindao = new UsuarioDAO();
 
-        objlogindao.atualizar(objlogindto);
-
-        NewJFrame login = new NewJFrame();
-        login.setVisible(true);
-        this.dispose();
+        if (objlogindao.atualizar(objlogindto) == true) {
+            NewJFrame login = new NewJFrame();
+            login.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "erro ao atualizar");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void SenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SenhaActionPerformed
         // TODO add your handling code here:
-        
+
         usuario objlogindto = new usuario();
 
         String Nome, usuario, Gmail, senha;
@@ -326,7 +357,7 @@ public class NewJFrame1 extends javax.swing.JFrame {
         senha = Senha.getText();
 
         UsuarioDAO objlogindao = new UsuarioDAO();
-        
+
         objlogindao.deletar(objlogindto);
 
         NewJFrame login = new NewJFrame();
@@ -337,9 +368,41 @@ public class NewJFrame1 extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Senha.setText("");
-        gmail.setText("");
         nome.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void gmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_gmailActionPerformed
+
+    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        usuario objlogindto = new usuario();
+
+        String Nome, email, senha;
+
+        Nome = nome.getText();
+        email = gmail.getText();
+        senha = Senha.getText();
+
+        objlogindto.setNome(Nome);
+        objlogindto.setGmail(email);
+        objlogindto.setSenha(senha);
+
+        UsuarioDAO objlogindao = new UsuarioDAO();
+
+        if (objlogindao.deletar(objlogindto) == true) {
+            NewJFrame login = new NewJFrame();
+            login.setVisible(true);
+            this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "erro ao atualizar");
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

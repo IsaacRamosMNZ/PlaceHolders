@@ -18,14 +18,16 @@ public class reserva {
     private int horafim;
     private String status;
 
-    public reserva(int id, int idUsuario, int idAmbiente, String data, int horaInicio, int horafim, String status) {
+    public reserva(int id, int idAmbiente, String data, int horaInicio, int horafim, String status) {
         this.id = id;
-        this.idUsuario = idUsuario;
         this.idAmbiente = idAmbiente;
         this.data = data;
         this.horaInicio = horaInicio;
         this.horafim = horafim;
         this.status = status;
+    }
+
+    public reserva() {
     }
 
     public int getId() {

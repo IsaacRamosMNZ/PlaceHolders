@@ -5,6 +5,7 @@
 package View;
 
 import DAO.UsuarioDAO;
+import DTO.Usuario_logado;
 import DTO.usuario;
 import java.awt.Color;
 import java.awt.Image;
@@ -52,7 +53,6 @@ public class loginView extends javax.swing.JFrame {
         Entrar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        Icone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -109,8 +109,6 @@ public class loginView extends javax.swing.JFrame {
             }
         });
 
-        Icone.setText("Icone");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,17 +142,13 @@ public class loginView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(150, 150, 150)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
+                .addGap(17, 147, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(Icone, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -206,7 +200,7 @@ public class loginView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void EntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntrarActionPerformed
-        // TODO add your handling code here:
+       
         usuario objlogindto = new usuario();
 
         String usuario, Senha;
@@ -223,6 +217,7 @@ public class loginView extends javax.swing.JFrame {
             NewJFrame tela = new NewJFrame();
             tela.setVisible(true);
             this.dispose();
+            
         }
     }//GEN-LAST:event_EntrarActionPerformed
 
@@ -253,7 +248,6 @@ public class loginView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Entrar;
-    private javax.swing.JLabel Icone;
     private javax.swing.JCheckBox OcultarSenha;
     private javax.swing.JPasswordField Senhatxt;
     private javax.swing.JTextField Usuariotxt;

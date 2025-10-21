@@ -9,6 +9,7 @@ import DAO.ReservaDAO;
 import DAO.UsuarioDAO;
 import DTO.Ambiente;
 
+
 /**
  *
  * @author deck
@@ -46,8 +47,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Criar = new javax.swing.JButton();
-        atualizar = new javax.swing.JButton();
-        deletar = new javax.swing.JButton();
+        Limpar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -65,17 +65,7 @@ public class NewJFrame3 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 130, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,17 +114,10 @@ public class NewJFrame3 extends javax.swing.JFrame {
             }
         });
 
-        atualizar.setText("atualizar");
-        atualizar.addActionListener(new java.awt.event.ActionListener() {
+        Limpar.setText("limpar");
+        Limpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atualizarActionPerformed(evt);
-            }
-        });
-
-        deletar.setText("deletar");
-        deletar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deletarActionPerformed(evt);
+                LimparActionPerformed(evt);
             }
         });
 
@@ -211,20 +194,20 @@ public class NewJFrame3 extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Criar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(atualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(40, 40, 40)
-                        .addComponent(deletar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Capacidade, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(Criar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -252,10 +235,9 @@ public class NewJFrame3 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(localização, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Criar, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                    .addComponent(atualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(deletar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Criar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Limpar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20))
         );
 
@@ -315,66 +297,32 @@ public class NewJFrame3 extends javax.swing.JFrame {
     }//GEN-LAST:event_localizaçãoActionPerformed
 
     private void CriarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CriarActionPerformed
-        // TODO add your handling code here:
-
         Ambiente objlogindto = new Ambiente();
 
-        String nome, capacidade, localizacao, recursos;
-
-        nome = Nome.getText();
-        capacidade = Capacidade.getText();
-        localizacao = localização.getText();
-        recursos = this.recursos.getText();
+        objlogindto.setNome(Nome.getText());
+        objlogindto.setCapacidade(Integer.parseInt(Capacidade.getText()));
+        objlogindto.setLocalizacao(localização.getText());
+        objlogindto.setRecursos(recursos.getText());
 
         AmbienteDAO objlogindao = new AmbienteDAO();
 
         objlogindao.inserir(objlogindto);
+
+        javax.swing.JOptionPane.showMessageDialog(this, "Sala criada com sucesso!");
 
         NewJFrame login = new NewJFrame();
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_CriarActionPerformed
 
-    private void atualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarActionPerformed
+    private void LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LimparActionPerformed
         // TODO add your handling code here:
-        Ambiente objlogindto = new Ambiente();
-
-        String nome, capacidade, localizacao, recursos;
-
-        nome = Nome.getText();
-        capacidade = Capacidade.getText();
-        localizacao = localização.getText();
-        recursos = this.recursos.getText();
-
-        AmbienteDAO objlogindao = new AmbienteDAO();
-
-        objlogindao.atualizar(objlogindto);
-
-        NewJFrame login = new NewJFrame();
-        login.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_atualizarActionPerformed
-
-    private void deletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletarActionPerformed
-        // TODO add your handling code here:
-
-        Ambiente objlogindto = new Ambiente();
-
-        String nome, capacidade, localizacao, recursos;
-
-        nome = Nome.getText();
-        capacidade = Capacidade.getText();
-        localizacao = localização.getText();
-        recursos = this.recursos.getText();
-
-        AmbienteDAO objlogindao = new AmbienteDAO();
-
-        objlogindao.deletar(objlogindto);
-
-        NewJFrame login = new NewJFrame();
-        login.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_deletarActionPerformed
+        ID.setText("");
+        Capacidade.setText("");
+        recursos.setText("");
+        localização.setText("");
+        Nome.setText("");
+    }//GEN-LAST:event_LimparActionPerformed
 
     /**
      * @param args the command line arguments
@@ -405,9 +353,8 @@ public class NewJFrame3 extends javax.swing.JFrame {
     private javax.swing.JTextField Capacidade;
     private javax.swing.JButton Criar;
     private javax.swing.JTextField ID;
+    private javax.swing.JButton Limpar;
     private javax.swing.JTextField Nome;
-    private javax.swing.JButton atualizar;
-    private javax.swing.JButton deletar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

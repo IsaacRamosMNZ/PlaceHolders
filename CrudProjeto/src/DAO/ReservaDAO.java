@@ -37,7 +37,6 @@ public class ReservaDAO {
             while (rs.next()) {
                 reserva r = new reserva(
                     rs.getInt("id"),
-                    rs.getInt("idUsuario"),
                     rs.getInt("idAmbiente"),
                     rs.getString("data"),
                     rs.getInt("horaInicio"),
@@ -66,7 +65,6 @@ public class ReservaDAO {
             if (rs.next()) {
                 r = new reserva(
                     rs.getInt("id"),
-                    rs.getInt("idUsuario"),
                     rs.getInt("idAmbiente"),
                     rs.getString("data"),
                     rs.getInt("horaInicio"),
@@ -79,32 +77,6 @@ public class ReservaDAO {
             e.printStackTrace();
         }
         return r;
-    }
-
-    public boolean verificarDisponibilidade(reserva r) {
-        String sql = "SELECT COUNT(*) FROM reserva WHERE idAmbiente = ? AND data = ? " +
-                     "AND ((horaInicio < ? AND horaFim > ?) OR (horaInicio < ? AND horaFim > ?))";
-
-        try (Connection conn = Conexao.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setInt(1, r.getIdAmbiente());
-            stmt.setString(2, r.getData());
-            stmt.setInt(3, r.getHorafim());
-            stmt.setInt(4, r.getHoraInicio());
-            stmt.setInt(5, r.getHoraInicio());
-            stmt.setInt(6, r.getHorafim());
-
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                int count = rs.getInt(1);
-                return count == 0;
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     public void atualizarStatus(int id, String novoStatus) {
